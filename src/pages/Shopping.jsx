@@ -1,15 +1,18 @@
 
 import Button from "../components/Button"
-
 import { product } from "../product"
+import { useCart } from "../store/CartContext"
+
 
 export default function Shopping() {
+    const { cart, addToCart } = useCart()
+    
     return (
         <>
             <div className="my-30  text-indigo-950 ">
                 <div className="flex justify-between    mb-10 items-center">
                     <p className="text-xl">this is fumous shoes in this year</p>
-                    <Button> Cart (0)</Button>
+                    <Button> Cart {cart.reduce((sun, item) => sun + item.quantity, 0)}</Button>
                 </div>
                 <div className="grid grid-cols-4 gap-8 mt-10 ">
                     {product.map((items) => (
@@ -24,13 +27,13 @@ export default function Shopping() {
                             <p className="text-lg text-gray-600 mb-4">${items.price}</p>
 
                             {/* use the button  */}
-                            <Button>Add To Cart</Button>
+                            <Button onClick={() => addToCart(items)}>Add To Cart</Button>
                         </div>
                     ))}
 
 
                 </div>
-
+               
             </div>
 
 
