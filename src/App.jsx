@@ -4,6 +4,7 @@ import About from "./pages/About"
 import Content from "./pages/Content"
 import Shopping from "./pages/Shopping"
 import LayOut from "./LayOut"
+import CartModal from "./cartModal/CartModal"
 function App() {
 
   const router = createBrowserRouter([
@@ -12,7 +13,8 @@ function App() {
         { index: true, element: <Home /> },
         { path: "/about", element: <About /> },
         { path: "/content", element: <Content /> },
-        { path: "shopping", element: <Shopping /> },
+        { path: "shopping", element: <Shopping />  },
+        { path: "/cart", element: <CartModal /> }
 
 
 
